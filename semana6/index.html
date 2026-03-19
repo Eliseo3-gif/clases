@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro de usuario</title>
 </head>
 <body>
+    <h2>Registro</h2>
+    <form id="formulario">
+
+        <input type="text" id="nombre" placeholder="hombre">
+        <p id="errornombre"></p>
+
+        <input type="text" id="Correo" placeholder="Correo">
+        <p id="erroremail"></p>
+
+        <input type="password" id="passwaord" placeholder="Contraseña">
+        <p id="errorpassword"></p>
+
+        <button type="submit">Registrar</button>
+<hr>
+        <h3>Usuario registrado</h3>
+        <div id="listaUsuarios"></div>
+        <script src="validadcion.js"></script>
+    </form>
     
 </body>
 </html>
