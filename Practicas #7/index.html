@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estacionamiento</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f4f4f4;
+        text-align: center;
+    }
+    .container {
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px gray;
+    }
+    input, button {
+        width: 90%;
+        padding: 10px;
+        margin: 5px;
+    }
+    #menu { display: none; }
+</style>
+
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="container" id="login">
+    <h2>Login</h2>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="clave" placeholder="Clave">
+    <button onclick="login()">Ingresar</button>
+    <p id="error"></p>
+</div>
+
+<!-- MENÚ -->
+<div class="container" id="menu">
+    <h2>Estacionamiento</h2>
+    
+    <input type="text" id="placa" placeholder="Placa del vehículo">
+    
+    <button onclick="entrada()">Registrar Entrada</button>
+    <button onclick="salida()">Registrar Salida</button>
+    <button onclick="mostrar()">Ver Vehículos</button>
+    
+    <p id="resultado"></p>
+</div>
+
+<!-- Enlace al JS -->
+<script src="script.js"></script>
+
+</body>
+</html>

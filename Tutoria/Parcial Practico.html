@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripcion a cursos en linea</title>
+</head>
+<body>
+    <h1>Inscripcion a cursos en linea</h1>
+
+    <div>
+        <form id="FormnularioCursos">
+            <label for="nombrecompleto">Nombre Completo:</label>
+            <input type="text" id="nombrecompleto" name="nombrecompleto">
+            <br><br>
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad">
+            <br><br>
+            <label for="correo">Correo Institucional:</label>
+            <input type="email" id="correo" name="correo">
+            <br><br>
+            <label for="Carnet">Numero de Carnet:</label>
+            <input type="text" id="Carnet" name="Carnet">
+            <br><br>
+            <label for="telefono">Numero de Telefono:</label>
+            <input type="text" id="telefono" name="telefono">
+            <br><br>
+            <label for="curso">Curso:</label>
+            <select id="curso" name="curso">
+                <option value="">Seleccione un curso</option>
+                <option value="DesarrolloWeb" data-precio="100">Desarrollo Web, Precio $100</option>
+                <option value="diseno" data-precio="150">Diseño, Precio $150</option>
+                <option value="marketing" data-precio="200">Marketing, Precio $200</option>
+                <option value="Electrica" data-precio="250">Electrica, Precio $250</option>
+                <option value="AdminEmpresas" data-precio="300">Administracion de Empresas, Precio $300</option>
+                <option value="Computacion" data-precio="350">Computacion, Precio $350</option>
+                <option value="Economia" data-precio="400">Economia, Precio $400</option>
+                <option value="Gastronomia" data-precio="450">Gastronomia, Precio $450</option>
+                <option value="Arte" data-precio="500">Arte, Precio $500</option>
+                <option value="Locucion" data-precio="550">Locucion, Precio $550</option>
+                <option value="Musica" data-precio="600">Musica, Precio $600</option>
+                <option value="Deportes" data-precio="650">Deportes, Precio $650</option>
+                <option value="Idiomas" data-precio="700">Idiomas, Precio $700</option>
+                <option value="Fisica" data-precio="750">Fisica, Precio $750</option>
+                <option value="Quimica" data-precio="800">Quimica, Precio $800</option>
+                <option value="Biologia" data-precio="850">Biologia, Precio $850</option>
+                <option value="Leyes" data-precio="1000">Leyes, Precio $1000</option>
+            </select>
+            <br><br>
+            <button type="submit">Registrar inscripcion a cursos</button>
+        </form>
+    </div>
+    <hr>
+    <div>
+        <h2>Registro de la asignacion</h2>
+        <table border="2">
+            <thead>
+            <tr>
+                <th>Nombre Completo</th>
+                <th>Edad</th>
+                <th>Correo Institucional</th>
+                <th>Numero de Carnet</th>
+                <th>Numero de Telefono</th>
+                <th>Curso Inscrito</th>
+            </tr>
+            </thead>
+        </table>
+    </div> 
+    <script src="script.js"></script>
+</body>
+</html>

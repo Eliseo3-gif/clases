@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones en JS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-seccion">
+            <h2>agregar libro</h2>
+            <input type="text" id="titulo" placeholder="Titulo del libro">
+            <input type="text" id="autor" placeholder="Autor del libro">
+
+            <label for="genero">Género</label>
+            <select id="genero">
+                <option value="">Seleccione un género</option>
+                <option value="novela">Novela</option>
+                <option value="ciencia-ficcion">Ciencia Ficción</option>
+                <option value="fantasia">Fantasía</option>
+                <option value="misterio">Misterio</option>
+                <option value="romance">Romance</option>
+                <option value="terror">Terror</option>
+                <option value="historia">Historia</option>
+                <option value="biografia">Biografía</option>
+                <option value="poesia">Poesía</option>
+            </select>
+            
+            <button onclick="addlibro()">Agregar Libro</button>
+        </div>
+        <div class="accion">
+            <button onclick="mostrarLibros()">Mostrar Libros</button>
+            <button onclick="EliminarLibros()">Eliminar el ultimo Libros</button>
+            <button onclick="filtro()">Filtrar por género</button>
+            <button onclick="resumen()">Resumen por Género</button>
+        </div>
+<div id="listalibros"></div>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>
