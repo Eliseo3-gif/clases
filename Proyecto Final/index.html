@@ -23,9 +23,12 @@
                 <label><input type="checkbox">Acuérdame</label>
                 <a href="Recuperar.html">Has Olvidado tu contraseña?</a>
             </div>
-            <button type="submit" class="btn">Acceder</button>
-            
-
+            <button type="submit" class="btn" onclick="validarYEntrar()">Acceder</button>
+            <script>
+                function validarYEntrar() {
+                    window.location.href = "PaginaPrincipal.html";
+                }
+            </script>
             <div class="register-link">
                 <p>No tienes una cuenta? <a href="Registrate.html">Registrate</a></p>
             </div>
