@@ -12,11 +12,11 @@
         <form action="">
             <h1>Inicie Sesion</h1>
             <div class="input-box">
-                <input type="text" placeholder="Nombre de usuario" required>
+                <input type="text" id="loginUser" placeholder="Nombre de usuario" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Contraseña" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" required>
                 <i class="bx bxs-lock-alt"></i>
             </div>
             <div class="remember-forget">
@@ -26,11 +26,18 @@
             <button type="submit" class="btn" onclick="validarYEntrar()">Acceder</button>
             <script>
                 function validarYEntrar() {
-                    window.location.href = "PaginaPrincipal.html";
+                    const user = document.getElementById("loginUser").value;
+                    const password = document.getElementById("loginPassword").value;
+
+                    if (user === "admin" && password === "123456") {
+                        window.location.href = "PaginaPrincipal.html";
+                    } else {
+                        alert("Nombre de usuario o contraseña incorrectos");
+                    }
                 }
             </script>
             <div class="register-link">
-                <p>No tienes una cuenta? <a href="Registrate.html">Registrate</a></p>
+                <p>No tienes una cuenta?<a href="Registrate.html">Registrate</a></p>
             </div>
         </form>
     </div>
