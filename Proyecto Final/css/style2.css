@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shadows+Into+Light:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Note+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* Importación de fuente profesional */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -12,98 +13,109 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(2.avif) no-repeat;
+    
+    /* IMAGEN DE FONDO: PUPUSAS SALVADOREÑAS */
+    /* Se utiliza una imagen de alta calidad de pupusas con curtido y salsa */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Pupusas_El_Salvador_Centro_America.JPG/1280px-Pupusas_El_Salvador_Centro_America.JPG');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    position: relative;
+}
+
+/* Capa oscura superpuesta para mejorar la legibilidad del formulario */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Ajustar opacidad para oscurecer más o menos */
+    z-index: 0;
 }
 
 .wrapper {
-    width: 420px;
-    background: transparent;
-    color: whiter;
-    border-radius: 10px;
-    padding: 30px 40px;
-}
-
-.wrapper h1 {
-    font-size: 36px;
+    position: relative;
+    z-index: 1; /* Asegura que el formulario esté sobre la capa oscura */
+    width: 400px;
+    
+    /* EFECTO GLASSMORPHISM (VIDRIO ESMERILADO) */
+    background: rgba(255, 255, 255, 0.15); /* Fondo blanco muy transparente */
+    backdrop-filter: blur(10px); /* Desenfoque de la imagen de pupusas detrás */
+    
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    color: #fff;
     text-align: center;
 }
 
-.wrapper .input-box  {
-    margin: 10px 0;
+.form-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.input-box {
+    position: relative;
     width: 100%;
     height: 50px;
-    position: relative;
-    margin: 30px 0;
+    margin-bottom: 25px;
 }
 
 .input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgb(255, 255, 255, .2);
-    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
     font-size: 16px;
-    color: whiter;
-    padding: 20px 45px 20px 20px;
+    color: #fff;
+    padding: 0 20px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .input-box input::placeholder {
-    color: whiter;
-}
-    
-.input-box i {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.wrapper .remember-forget {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-}
-
-.remember-forget label input {
-    accent-color: whiter;
-    margin-right: 3px;
-}
-
-.remember-forget a {
-    color: whiter;
-    text-decoration: none;
-}
-
-.remember-forget a:hover {
-    text-decoration: underline;
-}
-
-.wrapper .btn {
+.btn {
     width: 100%;
     height: 45px;
-    background: whiter;
+    background: #fff;
     border: none;
     outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgb(0, 0, 0, .1);
+    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
     color: #333;
     font-weight: 600;
+    transition: 0.3s;
+    margin-top: 10px;
 }
 
-.register-link p a {
-    color:#333;
-    text-decoration: none;
-    font-weight: 600;
+.btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.register-link p a:hover {
-    text-decoration: underline;
+/* Responsividad para móviles */
+@media (max-width: 450px) {
+    .wrapper {
+        width: 90%;
+        padding: 30px;
+    }
+    .form-box h2 {
+        font-size: 2rem;
+    }
 }
