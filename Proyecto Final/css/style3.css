@@ -1,11 +1,10 @@
-/* Importación de una fuente con estilo rústico/clásico */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    --color-crema: #f4ecd8; /* Fondo del logo */
-    --color-cafe: #5d3a24;  /* Color de las letras y cubiertos */
-    --color-dorado: #c58e32; /* Color de las espigas */
-    --color-rojo: #a62a22;   /* Acento del tomate/chile */
+    --color-crema: #f4ecd8;
+    --color-cafe: #5d3a24;
+    --color-dorado: #c58e32;
+    --color-rojo: #a62a22;
     --color-texto: #333;
 }
 
@@ -14,7 +13,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Contenedor Principal de la Barra */
 .navbar {
     background-color: var(--color-crema);
     border-bottom: 3px solid var(--color-dorado);
@@ -33,7 +31,6 @@ body {
     align-items: center;
 }
 
-/* Logo y Texto */
 .nav-logo {
     display: flex;
     align-items: center;
