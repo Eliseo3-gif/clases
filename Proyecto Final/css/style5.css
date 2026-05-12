@@ -58,6 +58,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -78,6 +79,7 @@ body {
     color: var(--color-rojo);
     border-bottom: 2px solid var(--color-rojo);
 }
+
 .nav-auth a {
     text-decoration: none;
     background-color: var(--color-cafe);
