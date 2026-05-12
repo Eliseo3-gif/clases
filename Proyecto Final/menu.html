@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="style4.css">
+     <link rel="stylesheet" href="css/style4.css">
     <title>La Cocina De Don Eliseo</title>
    
 
@@ -21,7 +21,7 @@
             <ul class="nav-links">
                 <li><a href="PaginaPrincipal.html">Inicio</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="https://wa.me/+50373382255">Contacto</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
                 <li><a href="https://maps.app.goo.gl/NtpQv9xmypMXiiGEA?g_st=aw">Ubicacion</a></li>
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
             </ul>
@@ -29,6 +29,11 @@
                 <a href="Login.html">Inicio De Sesion</a>
             </div>
         </div>
+        <div class="nav-cart">
+    <button onclick="toggleCarrito()" class="btn-carrito-nav">
+        🛒 <span id="contador-carrito">0</span>
+    </button>
+</div>
     </nav>
 
 
@@ -65,7 +70,17 @@
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
                 </div>
             </div>
+             <div class="card">
+                <img src="https://www.honduras.com/wp-content/uploads/2020/09/receta-sopa-de-gallina.jpg" alt="Sopa De Gallina India">
+                <div class="info">
+                    <h4>Sopa De Gallina India</h4>
+                    <p>Una sopa cremosa y sabrosa hecha con gallina india cocida en caldo aromático.</p>
+                    <p class="precio"> Precio: $3.75</p>
+                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                </div>
+            </div>    
         </div>
+        
 
        
         <div class="seccion-titulo">Combos</div>
@@ -75,7 +90,7 @@
                 <div class="info">
                     <h4>Combo de gallina india asada</h4>
                     <p>Gallina asada previamente condimentada que genera un sabor único.</p>
-                    <p class="precio"> Precio: $11.75</p>
+                    <p class="precio"> Precio: $25</p>
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
                 </div>
             </div>
@@ -84,7 +99,7 @@
                 <div class="info">
                     <h4>Bandeja Paisa</h4>
                     <p>Caracterizado por su gran abundancia incluye frijoles, arroz, chicharrón, carne molida, chorizo, huevo frito.</p>
-                    <p class="precio">Precio: $15.00</p>
+                    <p class="precio">Precio: $25.00</p>
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
                 </div>
             </div>
@@ -108,7 +123,7 @@
                 <div class="info">
                     <h4>Carne de res asada</h4>
                     <p>Caracterizada por su sabor intenso y textura tierna, se cocina a la parrilla y se acompaña con una variedad de vegetales asados.</p>
-                    <p class="precio">Precio: $7.00</p>
+                    <p class="precio">Precio: $3.50</p>
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
                 </div>
             </div> 
@@ -117,14 +132,14 @@
                 <div class="info">
                     <h4>Pupusas de chicharon, pollo, queso, frijoles.</h4>
                     <p>Gran diversidad de pupusas de diferentes sabores y especias</p>
-                    <p class="precio">Precio: $1.00</p>
+                    <p class="precio">Precio: $0.75</p>
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
                 </div>
             </div>
               <div class="card">
                 <img src="https://progcarne.com/storage/app/uploads/public/60f/9a2/701/60f9a270114ba195807563.jpg" alt="Panes Grandes Con Pollo">
                 <div class="info">
-                    <h4>Tacos de res o pollo</h4>
+                    <h4>Tacos de res o de soya</h4>
                     <p>Tacos servidos con carnes de res incluyendo vegetales y condimentos para un sabor picante.</p>
                     <p class="precio">Precio: $1.75</p>
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
@@ -135,9 +150,29 @@
                 <div class="info">
                     <h4>Hamburguesas de res con papas</h4>
                     <p>Gran hamburguesa con carne de res, vegetales y papas fritas pimentadas y un sabor unico.</p>
-                    <p class="precio">Precio: $5.25</p>
+                    <p class="precio">Precio: $3.50</p>
                     <button onclick="agregarCarrito()">Añadir al carrito</button>
                 </div>
+            </div>
+            <div class="card">
+                <div class="info">
+                    <img src="https://www.maricruzavalos.com/wp-content/uploads/2019/09/flautas-de-pollo-recipe-1024x1024.jpg" alt="Flautas De Pollo">
+                    <h4>Flautas De Pollo</h4>
+                    <p>Deliciosas flautas rellenas de pollo, cubiertas con salsa de tomate y queso derretido.</p>
+                    <p class="precio">Precio: $4.50</p>
+                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                </div>
+            </div>
+                <div class="card">
+                    <div class="info">
+                    <img src="https://th.bing.com/th/id/OIP.PRLxDBBfa3OBqi3lakat2gHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hamburguesa">
+                    <h4>Hamburguesa de Res</h4>
+                    <p>Jugosa hamburguesa de res, acompañada de queso, lechuga y tomate frescos.</p>
+                    <p class="precio">Precio: $3</p>
+                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    </div>
+                </div>
+
             </div>
         </div>
         </div>

@@ -8,7 +8,6 @@
             --color-texto: #333;
         }
 
-        /* ========== ESTILOS DE LA NAVBAR ========== */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -115,7 +114,6 @@
             }
         }
 
-        /* ========== ESTILOS DEL MENÚ ========== */
         * {
             margin: 0;
             padding: 0;
@@ -232,3 +230,77 @@
                 font-size: 1.5em;
             }
         }
+        /* Estilos para el Carrito Lateral */
+.carrito-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Oculto por defecto */
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.carrito-sidebar.active {
+    right: 0;
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-crema);
+    padding-bottom: 10px;
+}
+
+#items-carrito {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.item-en-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-carrito-nav {
+    background: var(--color-dorado);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--color-rojo);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.btn-pagar {
+    width: 100%;
+    padding: 15px;
+    background: #25D366; /* Color de WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
