@@ -54,6 +54,6 @@ function enviarWhatsApp() {
     });
     mensaje += `\n*Total a pagar: $${total.toFixed(2)}*`;
     
-    const url = `https://wa.me/50373382255?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/50373019885?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }

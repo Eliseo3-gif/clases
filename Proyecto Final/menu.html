@@ -12,27 +12,24 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="La Cocina De Don Eliseo.jpeg" alt="Logo">
+                <a href='https://postimg.cc/ZCjJCzRc' target='_blank'><img src='https://i.postimg.cc/Dw30p23t/La-Cocina-De-Don-Eliseo.jpg' border='0' alt='La-Cocina-De-Don-Eliseo'></a>
                 <div class="logo-text">
                     <h1>La Cocina De Don Eliseo</h1>
                     <span>(Don Cheyo)</span>
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="PaginaPrincipal.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="Contactos.html">Contacto</a></li>
                 <li><a href="https://maps.app.goo.gl/NtpQv9xmypMXiiGEA?g_st=aw">Ubicacion</a></li>
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                <a href="Admin.html" id="tab-admin" style="display: none;">Panel de Control</a>
             </ul>
             <div class="nav-auth">
                 <a href="Login.html">Inicio De Sesion</a>
             </div>
         </div>
-        <div class="nav-cart">
-    <button onclick="toggleCarrito()" class="btn-carrito-nav">
-        🛒 <span id="contador-carrito">0</span>
-    </button>
 </div>
     </nav>
 
@@ -47,7 +44,7 @@
                     <h4>Sopa de Pulla</h4>
                     <p>Este es un plato robusto, aromático y lleno de textura, se caracteriza por un caldo espeso y sustancioso.</p>
                     <p class="precio">💰 Precio: $3.75</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Sopa de Pulla', 3.75)">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -57,7 +54,7 @@
                     <h4>Sopa de Res</h4>
                     <p>Esta sopa es un homenaje a la frescura de la huerta. Se distingue por un caldo claro pero potente.</p>
                     <p class="precio">💰 Precio: $4.00</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Sopa de Res', 4.00)">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -67,7 +64,7 @@
                     <h4>Panes Grandes Con Pollo</h4>
                     <p>Este platillo es un espectáculo visual y gustativo. Se presenta en un pan francés alargado y crujiente.</p>
                     <p class="precio">Precio: $3.00</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Panes Grandes Con Pollo', 3.00)">Añadir al carrito</button>
                 </div>
             </div>
              <div class="card">
@@ -76,7 +73,7 @@
                     <h4>Sopa De Gallina India</h4>
                     <p>Una sopa cremosa y sabrosa hecha con gallina india cocida en caldo aromático.</p>
                     <p class="precio"> Precio: $3.75</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Sopa De Gallina India', 3.75)">Añadir al carrito</button>
                 </div>
             </div>    
         </div>
@@ -91,7 +88,7 @@
                     <h4>Combo de gallina india asada</h4>
                     <p>Gallina asada previamente condimentada que genera un sabor único.</p>
                     <p class="precio"> Precio: $25</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Combo de gallina india asada', 25)">Añadir al carrito</button>
                 </div>
             </div>
                  <div class="card">
@@ -100,7 +97,7 @@
                     <h4>Bandeja Paisa</h4>
                     <p>Caracterizado por su gran abundancia incluye frijoles, arroz, chicharrón, carne molida, chorizo, huevo frito.</p>
                     <p class="precio">Precio: $25.00</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Bandeja Paisa', 25.00)">Añadir al carrito</button>
                 </div>
             </div>
         </div>
@@ -115,7 +112,7 @@
                     <h4>Pechuga a la plancha</h4>
                     <p> Se trata de un tierno filete de pechuga de pollo, marinado con una mezcla de finas hierbas y un toque de cítricos</p>
                     <p class="precio"> Precio: $3.75</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Pechuga a la plancha', 3.75)">Añadir al carrito</button>
                 </div>
             </div>
                        <div class="card">
@@ -124,7 +121,7 @@
                     <h4>Carne de res asada</h4>
                     <p>Caracterizada por su sabor intenso y textura tierna, se cocina a la parrilla y se acompaña con una variedad de vegetales asados.</p>
                     <p class="precio">Precio: $3.50</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Carne de res asada', 3.50)">Añadir al carrito</button>
                 </div>
             </div> 
             <div class="card">
@@ -133,7 +130,7 @@
                     <h4>Pupusas de chicharon, pollo, queso, frijoles.</h4>
                     <p>Gran diversidad de pupusas de diferentes sabores y especias</p>
                     <p class="precio">Precio: $0.75</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Pupusas de chicharon, pollo, queso, frijoles.', 0.75)">Añadir al carrito</button>
                 </div>
             </div>
               <div class="card">
@@ -142,7 +139,7 @@
                     <h4>Tacos de res o de soya</h4>
                     <p>Tacos servidos con carnes de res incluyendo vegetales y condimentos para un sabor picante.</p>
                     <p class="precio">Precio: $1.75</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Tacos de res o de soya', 1.75)">Añadir al carrito</button>
                 </div>
             </div> 
                <div class="card">
@@ -151,7 +148,7 @@
                     <h4>Hamburguesas de res con papas</h4>
                     <p>Gran hamburguesa con carne de res, vegetales y papas fritas pimentadas y un sabor unico.</p>
                     <p class="precio">Precio: $3.50</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Hamburguesas de res con papas', 3.50)">Añadir al carrito</button>
                 </div>
             </div>
             <div class="card">
@@ -160,7 +157,7 @@
                     <h4>Flautas De Pollo</h4>
                     <p>Deliciosas flautas rellenas de pollo, cubiertas con salsa de tomate y queso derretido.</p>
                     <p class="precio">Precio: $4.50</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <button onclick="agregarCarrito('Flautas De Pollo', 4.50)">Añadir al carrito</button>
                 </div>
             </div>
                 <div class="card">
@@ -168,8 +165,8 @@
                     <img src="https://th.bing.com/th/id/OIP.PRLxDBBfa3OBqi3lakat2gHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hamburguesa">
                     <h4>Hamburguesa de Res</h4>
                     <p>Jugosa hamburguesa de res, acompañada de queso, lechuga y tomate frescos.</p>
-                    <p class="precio">Precio: $3</p>
-                    <button onclick="agregarCarrito()">Añadir al carrito</button>
+                    <p class="precio">Precio: $3.00</p>
+                    <button onclick="agregarCarrito('Hamburguesa de Res', 3.00)">Añadir al carrito</button>
                     </div>
                 </div>
 
@@ -181,5 +178,13 @@
                  
                
         </div>
+        <div id="carrito-lateral" class="carrito-sidebar">
+    <h3>Tu Pedido</h3>
+    <div id="items-carrito"></div>
+    <p>Total: $<span id="total-carrito">0.00</span></p>
+    <button onclick="enviarWhatsApp()">Pedir por WhatsApp</button>
+    <button onclick="toggleCarrito()">Cerrar</button>
+</div>
+<script src="carrito.js"></script>
 </body>
 </html>
