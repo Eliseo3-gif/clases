@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 07 - Registro de Productos Comercial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+            color: #334155;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #8B2323; /* Rojo Vino Institucional */
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .header h1 { font-size: 24px; margin-bottom: 5px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        input, select {
+            padding: 10px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Botones */
+        .btn {
+            padding: 11px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+        }
+
+        .btn-primary { background-color: #2563eb; width: 100%; }
+        .btn-primary:hover { background-color: #1d4ed8; }
+        .btn-danger { background-color: #ef4444; padding: 5px 10px; font-size: 12px; }
+        .btn-danger:hover { background-color: #dc2626; }
+        
+        .methods-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filter-box {
+            background-color: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .grid-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .btn-action { background-color: #475569; font-size: 12px; padding: 8px; }
+        .btn-action:hover { background-color: #334155; }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .metric-card {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .metric-card.blue {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+
+        .metric-val {
+            font-size: 20px;
+            font-weight: bold;
+            color: #166534;
+        }
+        .blue .metric-val { color: #1e40af; }
+
+        /* Tabla de Datos */
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .table-header-box {
+            background-color: #1e293b;
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #64748b;
+            padding: 12px 20px;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        td {
+            padding: 12px 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        tr:hover { background-color: #f8fafc; }
+        .no-data { text-align: center; color: #94a3b8; padding: 30px; font-style: italic; }
+
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>S09 - Registro de Productos en Comercial</h1>
+            <p>ITCA FEPADE - Escuela Especializada en Ingeniería (San Miguel)</p>
+        </div>
+
+        <div class="main-grid">
+            <div class="card">
+                <div class="card-title">Ingreso de Producto (Array.push)</div>
+                <form id="productoForm">
+                    <div class="form-group">
+                        <label for="codigo">Código Único del Producto</label>
+                        <input type="text" id="codigo" required placeholder="Ej. PROD01">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Producto</label>
+                        <input type="text" id="nombre" required placeholder="Ej. Licuadora Oster">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria">
+                            <option value="Electrodomésticos">Electrodomésticos</option>
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Hogar">Hogar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio Unitario ($)</label>
+                        <input type="number" id="precio" step="0.01" min="0.1" required placeholder="0.00">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar e Insertar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Demostración Operativa de Métodos</div>
+                <div class="methods-container">
+                    
+                    <div class="filter-box">
+                        <label for="filtroCategoria">Filtrar por Categoría (Array.filter):</label>
+                        <select id="filtroCategoria" onchange="filtrarProductos()">
+                            <option value="TODOS">-- Mostrar Todos --</option>
+                            <option value="Electrodomésticos">Electrodomésticos</option>
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Hogar">Hogar</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-box">
+                        <label>Transformaciones y Modificaciones Rápidas:</label>
+                        <div class="grid-buttons">
+                            <button class="btn btn-action" onclick="aplicarDescuentoMasivo()">Aplicar 10% Descuento (.map)</button>
+                            <button class="btn btn-action" onclick="ordenarPorPrecio()">Ordenar por Precio Menor</button>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="label-metric">Inversión Total (.reduce)</div>
+                            <div class="metric-val" id="totalInversion">$0.00</div>
+                        </div>
+                        <div class="metric-card blue">
+                            <div class="label-metric">Total Items Registrados</div>
+                            <div class="metric-val" id="totalItems">0</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header-box">
+                <span>Inventario de la Comercial</span>
+                <span id="estadoFiltro" style="font-size: 12px; background-color: #475569; padding: 4px 8px; border-radius: 4px;">Vista: Todos</span>
+            </div>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Acciones (.findIndex + .splice)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaCuerpo">
+                        <tr>
+                            <td colspan="5" class="no-data">No hay productos en inventario.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let inventario = [];
+
+        document.getElementById('productoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const codigo = document.getElementById('codigo').value.trim().toUpperCase();
+            const nombre = document.getElementById('nombre').value.trim();
+            const categoria = document.getElementById('categoria').value;
+            const precio = parseFloat(document.getElementById('precio').value);
+
+            const existe = inventario.findIndex(prod => prod.codigo === codigo);
+            if (existe !== -1) {
+                alert("Error: Ya existe un producto registrado con ese código.");
+                return;
+            }
+
+            const nuevoProducto = {
+                codigo: codigo,
+                nombre: nombre,
+                categoria: categoria,
+                precio: precio
+            };
+
+            inventario.push(nuevoProducto);
+
+            document.getElementById('productoForm').reset();
+            actualizarInterfaz();
+        });
+
+        function actualizarInterfaz(datosAMostrar = inventario) {
+            const tablaCuerpo = document.getElementById('tablaCuerpo');
+            tablaCuerpo.innerHTML = "";
+
+            const totalInversion = inventario.reduce((acumulador, prod) => acumulador + prod.precio, 0);
+            document.getElementById('totalInversion').innerText = `$${totalInversion.toFixed(2)}`;
+            document.getElementById('totalItems').innerText = inventario.length;
+
+            if (datosAMostrar.length === 0) {
+                tablaCuerpo.innerHTML = `<tr><td colspan="5" class="no-data">No se encontraron productos disponibles.</td></tr>`;
+                return;
+            }
+
+            datosAMostrar.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${item.codigo}</strong></td>
+                    <td>${item.nombre}</td>
+                    <td>${item.categoria}</td>
+                    <td>$${item.precio.toFixed(2)}</td>
+                    <td>
+                        <button class="btn btn-danger" onclick="eliminarProducto('${item.codigo}')">Eliminar</button>
+                    </td>
+                `;
+                tablaCuerpo.appendChild(tr);
+            });
+        }
+
+        function filtrarProductos() {
+            const filtro = document.getElementById('filtroCategoria').value;
+            const estadoFiltro = document.getElementById('estadoFiltro');
+
+            if (filtro === "TODOS") {
+                estadoFiltro.innerText = "Vista: Todos";
+                actualizarInterfaz(inventario);
+            } else {
+                estadoFiltro.innerText = `Vista: ${filtro}`;
+                const filtrados = inventario.filter(prod => prod.categoria === filtro);
+                actualizarInterfaz(filtrados);
+            }
+        }
+
+        function aplicarDescuentoMasivo() {
+            if (inventario.length === 0) {
+                alert("No hay productos en el inventario para aplicar descuentos.");
+                return;
+            }
+
+            inventario = inventario.map(prod => {
+                return {
+                    ...prod,
+                    precio: prod.precio * 0.90 
+                };
+            });
+
+            alert("Se ha aplicado un 10% de descuento a todo el inventario mediante el método .map()");
+            document.getElementById('filtroCategoria').value = "TODOS";
+            actualizarInterfaz();
+        }
+
+        function ordenarPorPrecio() {
+            inventario.sort((a, b) => a.precio - b.precio);
+            actualizarInterfaz();
+        }
+
+        function eliminarProducto(codigoParaEliminar) {
+            if (confirm(`¿Está seguro de que desea eliminar el producto con código ${codigoParaEliminar}?`)) {
+                
+                const indice = inventario.findIndex(prod => prod.codigo === codigoParaEliminar);
+
+                if (indice !== -1) {
+                    inventario.splice(indice, 1);
+                    
+                    document.getElementById('filtroCategoria').value = "TODOS";
+                    actualizarInterfaz();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
