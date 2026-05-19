@@ -1,59 +1,56 @@
-let carrito = [];
-let total = 0;
+// =============================================
+//   CARRITO DE COMPRAS - La Cocina De Don Eliseo
+// =============================================
 
-// Función para abrir/cerrar el carrito
-function toggleCarrito() {
-    document.getElementById('carrito-lateral').classList.toggle('active');
-}
-
-// Función para añadir productos
 function agregarCarrito(nombre, precio) {
-    carrito.push({ nombre, precio });
-    actualizarInterfaz();
-    
-    // Feedback visual opcional
-    alert(`${nombre} añadido al carrito`);
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const existente = carrito.find(item => item.nombre === nombre);
+    if (existente) {
+        existente.cantidad++;
+    } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+    }
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    actualizarContador();
+    mostrarNotificacion(nombre);
 }
 
-function actualizarInterfaz() {
-    const contenedor = document.getElementById('items-carrito');
+function actualizarContador() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const total = carrito.reduce((sum, item) => sum + item.cantidad, 0);
     const contador = document.getElementById('contador-carrito');
-    const totalTxt = document.getElementById('total-carrito');
-    
-    contenedor.innerHTML = '';
-    total = 0;
+    if (contador) {
+        contador.textContent = total;
+        contador.style.transform = 'scale(1.4)';
+        setTimeout(() => contador.style.transform = 'scale(1)', 200);
+    }
+}
 
-    carrito.forEach((item, index) => {
-        total += item.precio;
-        contenedor.innerHTML += `
-            <div class="item-en-carrito">
-                <div>
-                    <p style="margin:0; font-weight:600;">${item.nombre}</p>
-                    <p style="margin:0; color:var(--color-dorado);">$${item.precio.toFixed(2)}</p>
-                </div>
-                <button onclick="eliminarDelCarrito(${index})" style="background:none; border:none; color:red; cursor:pointer;">Eliminar</button>
-            </div>
+function mostrarNotificacion(nombre) {
+    let notif = document.getElementById('notif-carrito');
+    if (!notif) {
+        notif = document.createElement('div');
+        notif.id = 'notif-carrito';
+        notif.style.cssText = `
+            position: fixed; bottom: 30px; right: 30px;
+            background: #2d6a2d; color: white;
+            padding: 12px 20px; border-radius: 10px;
+            font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            z-index: 9999; transition: opacity 0.4s;
+            pointer-events: none;
         `;
-    });
-
-    contador.innerText = carrito.length;
-    totalTxt.innerText = total.toFixed(2);
+        document.body.appendChild(notif);
+    }
+    notif.textContent = `✅ "${nombre}" añadido al carrito`;
+    notif.style.opacity = '1';
+    clearTimeout(notif._timer);
+    notif._timer = setTimeout(() => notif.style.opacity = '0', 2500);
 }
 
-function eliminarDelCarrito(index) {
-    carrito.splice(index, 1);
-    actualizarInterfaz();
+function toggleCarrito() {
+    window.location.href = 'Carrito.html';
 }
 
-function enviarWhatsApp() {
-    if (carrito.length === 0) return alert("El carrito está vacío");
-    
-    let mensaje = "¡Hola! Quisiera hacer el siguiente pedido en La Cocina De Don Eliseo:\n\n";
-    carrito.forEach(item => {
-        mensaje += `- ${item.nombre} ($${item.precio.toFixed(2)})\n`;
-    });
-    mensaje += `\n*Total a pagar: $${total.toFixed(2)}*`;
-    
-    const url = `https://wa.me/50373019885?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-}
+// Inicializar contador al cargar la página
+document.addEventListener('DOMContentLoaded', actualizarContador);

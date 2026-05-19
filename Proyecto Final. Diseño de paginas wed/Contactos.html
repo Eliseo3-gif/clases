@@ -6,12 +6,23 @@
     <link rel="stylesheet" href="css/style6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Contáctanos - La Cocina De Don Eliseo</title>
+    <style>
+        .nav-user { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-user .user-btn { display: flex; align-items: center; gap: 8px; background: none; border: 2px solid currentColor; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 600; text-decoration: none; color: inherit; }
+        .nav-user .user-btn .avatar { width: 28px; height: 28px; border-radius: 50%; background: #e67e22; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+        .dropdown-menu { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: white; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); min-width: 180px; z-index: 999; overflow: hidden; }
+        .dropdown-menu.visible { display: block; }
+        .dropdown-menu p { padding: 12px 16px; margin: 0; font-size: 0.85rem; color: #666; border-bottom: 1px solid #eee; }
+        .dropdown-menu button { display: block; width: 100%; padding: 11px 16px; text-align: left; background: none; border: none; font-size: 0.9rem; cursor: pointer; color: #333; box-sizing: border-box; }
+        .dropdown-menu button:hover { background: #f5f5f5; }
+        .dropdown-menu .cerrar-sesion { color: #e74c3c; border-top: 1px solid #eee; }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="La Cocina De Don Eliseo.jpeg" alt="Logo">
+      <a href='https://postimg.cc/ZCjJCzRc' target='_blank'><img src='https://i.postimg.cc/Dw30p23t/La-Cocina-De-Don-Eliseo.jpg' border='0' alt='La-Cocina-De-Don-Eliseo'></a>
                 <div class="logo-text">
                     <h1>La Cocina De Don Eliseo</h1>
                     <span>(Don Cheyo)</span>
@@ -25,7 +36,7 @@
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
             </ul>
             <div class="nav-auth">
-                <a href="Login.html">Inicio De Sesion</a>
+                <div id="nav-sesion"></div>
             </div>
         </div>
     </nav>
@@ -41,41 +52,59 @@
                     <p>+503 7301-9885</p>
                     <span class="btn-contacto">Escríbenos</span>
                 </a>
-
                 <a href="https://www.facebook.com/share/1YUuKTMczm/" target="_blank" class="card-contacto">
                     <i class="fab fa-facebook"></i>
                     <h3>Facebook</h3>
                     <p>La Cocina De Don Eliseo</p>
                     <span class="btn-contacto">Visitar</span>
                 </a>
-
                 <a href="https://www.instagram.com/lacocinadedoneliseo?igsh=dXdzMm5pa21raXJu" target="_blank" class="card-contacto">
                     <i class="fab fa-instagram"></i>
                     <h3>Instagram</h3>
                     <p>@lacocinadedoneliseo</p>
                     <span class="btn-contacto">Seguir</span>
                 </a>
-
                 <a href="https://www.tiktok.com/@la.cocina.de.don39?_r=1&_t=ZS-96J3Ip8gFvw" target="_blank" class="card-contacto">
                     <i class="fab fa-tiktok"></i>
                     <h3>TikTok</h3>
                     <p>@la.cocina.de.don39</p>
                     <span class="btn-contacto">Ver videos</span>
                 </a>
-
                 <a href="mailto:lacocinadedoneliseo.com" class="card-contacto">
                     <i class="fa-solid fa-envelope"></i>
-                    <h3>Email</h3> 
+                    <h3>Email</h3>
                     <p>LaCocinaDeDonEliseo.com</p>
                     <span class="btn-contacto">Enviar correo</span>
                 </a>
             </div>
         </div>
     </main>
-</body>
-<body>
-    <div class="text" >
 
-    </div>
+    <script>
+        const sesion = JSON.parse(localStorage.getItem('sesionActiva'));
+        const navSesion = document.getElementById('nav-sesion');
+        if (sesion) {
+            const inicial = sesion.user.charAt(0).toUpperCase();
+            navSesion.innerHTML = `
+                <div class="nav-user">
+                    <button class="user-btn" onclick="toggleDropdown()">
+                        <div class="avatar">${inicial}</div>
+                        ${sesion.user}
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <p>📧 ${sesion.email}</p>
+                        <button class="cerrar-sesion" onclick="cerrarSesion()">🚪 Cerrar Sesión</button>
+                    </div>
+                </div>`;
+        } else {
+            navSesion.innerHTML = `<a href="Login.html">Inicio De Sesion</a>`;
+        }
+        function toggleDropdown() { document.getElementById('dropdownMenu').classList.toggle('visible'); }
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu && !e.target.closest('.nav-user')) menu.classList.remove('visible');
+        });
+        function cerrarSesion() { localStorage.removeItem('sesionActiva'); window.location.href = 'Login.html'; }
+    </script>
 </body>
 </html>

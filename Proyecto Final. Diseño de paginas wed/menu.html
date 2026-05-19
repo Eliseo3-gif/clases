@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="css/style4.css">
+    <link rel="stylesheet" href="css/style4.css">
     <title>La Cocina De Don Eliseo</title>
-   
 
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href='https://postimg.cc/ZCjJCzRc' target='_blank'><img src='https://i.postimg.cc/Dw30p23t/La-Cocina-De-Don-Eliseo.jpg' border='0' alt='La-Cocina-De-Don-Eliseo'></a>
+                <a href="https://postimg.cc/ZCjJCzRc" target="_blank">
+                    <img src="https://i.postimg.cc/Dw30p23t/La-Cocina-De-Don-Eliseo.jpg" border="0" alt="La Cocina De Don Eliseo">
+                </a>
                 <div class="logo-text">
                     <h1>La Cocina De Don Eliseo</h1>
                     <span>(Don Cheyo)</span>
@@ -24,27 +25,30 @@
                 <li><a href="Contactos.html">Contacto</a></li>
                 <li><a href="https://maps.app.goo.gl/NtpQv9xmypMXiiGEA?g_st=aw">Ubicacion</a></li>
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
-                <a href="Admin.html" id="tab-admin" style="display: none;">Panel de Control</a>
+                <a href="Admin.html" id="tab-admin" style="display:none;">Panel de Control</a>
             </ul>
             <div class="nav-auth">
-                <a href="Login.html">Inicio De Sesion</a>
+                <div id="nav-sesion"></div>
+                <!-- Botón del carrito: al hacer clic va a Carrito.html -->
+                <button class="boton-carrito-nav" onclick="toggleCarrito()">
+                    🛒 <span id="contador-carrito">0</span>
+                </button>
             </div>
         </div>
-</div>
     </nav>
-
 
     <div class="contenido-principal">
         <h1 class="titulo-principal">🍽️ Menú de comidas</h1>
 
+        <!-- ── Sopas y platos ── -->
         <div class="contenedor">
             <div class="card">
                 <img src="https://www.recetas-nicaragua.com/base/stock/Recipe/sopa-de-mondongo-de-masatepe/sopa-de-mondongo-de-masatepe_web.jpg.webp" alt="Sopa de Pulla">
                 <div class="info">
                     <h4>Sopa de Pulla</h4>
-                    <p>Este es un plato robusto, aromático y lleno de textura, se caracteriza por un caldo espeso y sustancioso.</p>
-                    <p class="precio">💰 Precio: $3.75</p>
-                    <button onclick="agregarCarrito('Sopa de Pulla', 3.75)">Añadir al carrito</button>
+                    <p>Un plato robusto, aromático y lleno de textura. Caldo espeso y sustancioso.</p>
+                    <p class="precio">$3.75</p>
+                    <button onclick="agregarYConfirmar(this, 'Sopa de Pulla', 3.75)">🛒 Añadir al carrito</button>
                 </div>
             </div>
 
@@ -52,9 +56,9 @@
                 <img src="https://www.recetas-nicaragua.com/base/stock/Recipe/sopa-de-res/sopa-de-res_web.jpg" alt="Sopa de Res">
                 <div class="info">
                     <h4>Sopa de Res</h4>
-                    <p>Esta sopa es un homenaje a la frescura de la huerta. Se distingue por un caldo claro pero potente.</p>
-                    <p class="precio">💰 Precio: $4.00</p>
-                    <button onclick="agregarCarrito('Sopa de Res', 4.00)">Añadir al carrito</button>
+                    <p>Homenaje a la frescura de la huerta. Caldo claro pero potente con verduras.</p>
+                    <p class="precio">$4.00</p>
+                    <button onclick="agregarYConfirmar(this, 'Sopa de Res', 4.00)">🛒 Añadir al carrito</button>
                 </div>
             </div>
 
@@ -62,24 +66,24 @@
                 <img src="https://ca-times.brightspotcdn.com/dims4/default/f3b92f0/2147483647/strip/true/crop/5974x3734+0+125/resize/1200x750!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fed%2Fd9%2F10a0a25841788159afea46a94669%2F1421227-fo-salvisoul-recipes-08.jpg" alt="Panes Grandes Con Pollo">
                 <div class="info">
                     <h4>Panes Grandes Con Pollo</h4>
-                    <p>Este platillo es un espectáculo visual y gustativo. Se presenta en un pan francés alargado y crujiente.</p>
-                    <p class="precio">Precio: $3.00</p>
-                    <button onclick="agregarCarrito('Panes Grandes Con Pollo', 3.00)">Añadir al carrito</button>
+                    <p>Pan francés alargado y crujiente con pollo y sus acompañamientos.</p>
+                    <p class="precio">$3.00</p>
+                    <button onclick="agregarYConfirmar(this, 'Panes Grandes Con Pollo', 3.00)">🛒 Añadir al carrito</button>
                 </div>
             </div>
-             <div class="card">
+
+            <div class="card">
                 <img src="https://www.honduras.com/wp-content/uploads/2020/09/receta-sopa-de-gallina.jpg" alt="Sopa De Gallina India">
                 <div class="info">
                     <h4>Sopa De Gallina India</h4>
-                    <p>Una sopa cremosa y sabrosa hecha con gallina india cocida en caldo aromático.</p>
-                    <p class="precio"> Precio: $3.75</p>
-                    <button onclick="agregarCarrito('Sopa De Gallina India', 3.75)">Añadir al carrito</button>
+                    <p>Sopa cremosa y sabrosa hecha con gallina india en caldo aromático.</p>
+                    <p class="precio">$3.75</p>
+                    <button onclick="agregarYConfirmar(this, 'Sopa De Gallina India', 3.75)">🛒 Añadir al carrito</button>
                 </div>
-            </div>    
+            </div>
         </div>
-        
 
-       
+        <!-- ── Combos ── -->
         <div class="seccion-titulo">Combos</div>
         <div class="contenedor">
             <div class="card">
@@ -87,104 +91,147 @@
                 <div class="info">
                     <h4>Combo de gallina india asada</h4>
                     <p>Gallina asada previamente condimentada que genera un sabor único.</p>
-                    <p class="precio"> Precio: $25</p>
-                    <button onclick="agregarCarrito('Combo de gallina india asada', 25)">Añadir al carrito</button>
+                    <p class="precio">$25.00</p>
+                    <button onclick="agregarYConfirmar(this, 'Combo de gallina india asada', 25.00)">🛒 Añadir al carrito</button>
                 </div>
             </div>
-                 <div class="card">
-                <img src="https://i.blogs.es/bb0cca/bandeja_paisa/1200_900.jpg" alt="Panes Grandes Con Pollo">
+
+            <div class="card">
+                <img src="https://i.blogs.es/bb0cca/bandeja_paisa/1200_900.jpg" alt="Bandeja Paisa">
                 <div class="info">
                     <h4>Bandeja Paisa</h4>
-                    <p>Caracterizado por su gran abundancia incluye frijoles, arroz, chicharrón, carne molida, chorizo, huevo frito.</p>
-                    <p class="precio">Precio: $25.00</p>
-                    <button onclick="agregarCarrito('Bandeja Paisa', 25.00)">Añadir al carrito</button>
+                    <p>Frijoles, arroz, chicharrón, carne molida, chorizo y huevo frito.</p>
+                    <p class="precio">$25.00</p>
+                    <button onclick="agregarYConfirmar(this, 'Bandeja Paisa', 25.00)">🛒 Añadir al carrito</button>
                 </div>
             </div>
         </div>
-          
-        </div>
-    </div>
-            <div class="seccion-titulo">Menu del Dia</div>
+
+        <!-- ── Menú del Día ── -->
+        <div class="seccion-titulo">Menu del Dia</div>
         <div class="contenedor">
             <div class="card">
-                <img src="https://cdn-ilddihb.nitrocdn.com/MgqZCGPEMHvMRLsisMUCAIMWvgGMxqaj/assets/images/optimized/rev-d01d8c2/www.goya.com/wp-content/uploads/2025/05/Mexican-Style-Pollo-Asado-al-Carbon.jpg" alt="Combo Gallina India Asada">
+                <img src="https://cdn-ilddihb.nitrocdn.com/MgqZCGPEMHvMRLsisMUCAIMWvgGMxqaj/assets/images/optimized/rev-d01d8c2/www.goya.com/wp-content/uploads/2025/05/Mexican-Style-Pollo-Asado-al-Carbon.jpg" alt="Pechuga a la plancha">
                 <div class="info">
                     <h4>Pechuga a la plancha</h4>
-                    <p> Se trata de un tierno filete de pechuga de pollo, marinado con una mezcla de finas hierbas y un toque de cítricos</p>
-                    <p class="precio"> Precio: $3.75</p>
-                    <button onclick="agregarCarrito('Pechuga a la plancha', 3.75)">Añadir al carrito</button>
+                    <p>Filete marinado con finas hierbas y un toque de cítricos.</p>
+                    <p class="precio">$3.75</p>
+                    <button onclick="agregarYConfirmar(this, 'Pechuga a la plancha', 3.75)">🛒 Añadir al carrito</button>
                 </div>
             </div>
-                       <div class="card">
-                <img src="https://thumbs.dreamstime.com/b/plato-con-las-verduras-y-la-carne-asada-60163325.jpg" alt="Panes Grandes Con Pollo">
+
+            <div class="card">
+                <img src="https://thumbs.dreamstime.com/b/plato-con-las-verduras-y-la-carne-asada-60163325.jpg" alt="Carne de res asada">
                 <div class="info">
                     <h4>Carne de res asada</h4>
-                    <p>Caracterizada por su sabor intenso y textura tierna, se cocina a la parrilla y se acompaña con una variedad de vegetales asados.</p>
-                    <p class="precio">Precio: $3.50</p>
-                    <button onclick="agregarCarrito('Carne de res asada', 3.50)">Añadir al carrito</button>
-                </div>
-            </div> 
-            <div class="card">
-                <img src="https://cookingwithkids.org/wp-content/uploads/2022/12/Pupusas_750x750.jpg" alt="Panes Grandes Con Pollo">
-                <div class="info">
-                    <h4>Pupusas de chicharon, pollo, queso, frijoles.</h4>
-                    <p>Gran diversidad de pupusas de diferentes sabores y especias</p>
-                    <p class="precio">Precio: $0.75</p>
-                    <button onclick="agregarCarrito('Pupusas de chicharon, pollo, queso, frijoles.', 0.75)">Añadir al carrito</button>
+                    <p>A la parrilla con textura tierna, acompañada de vegetales asados.</p>
+                    <p class="precio">$3.50</p>
+                    <button onclick="agregarYConfirmar(this, 'Carne de res asada', 3.50)">🛒 Añadir al carrito</button>
                 </div>
             </div>
-              <div class="card">
-                <img src="https://progcarne.com/storage/app/uploads/public/60f/9a2/701/60f9a270114ba195807563.jpg" alt="Panes Grandes Con Pollo">
+
+            <div class="card">
+                <img src="https://cookingwithkids.org/wp-content/uploads/2022/12/Pupusas_750x750.jpg" alt="Pupusas">
+                <div class="info">
+                    <h4>Pupusas (chicharrón, pollo, queso, frijoles)</h4>
+                    <p>Gran diversidad de pupusas de diferentes sabores y especias.</p>
+                    <p class="precio">$0.75</p>
+                    <button onclick="agregarYConfirmar(this, 'Pupusas (chicharrón, pollo, queso, frijoles)', 0.75)">🛒 Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://progcarne.com/storage/app/uploads/public/60f/9a2/701/60f9a270114ba195807563.jpg" alt="Tacos de res o de soya">
                 <div class="info">
                     <h4>Tacos de res o de soya</h4>
-                    <p>Tacos servidos con carnes de res incluyendo vegetales y condimentos para un sabor picante.</p>
-                    <p class="precio">Precio: $1.75</p>
-                    <button onclick="agregarCarrito('Tacos de res o de soya', 1.75)">Añadir al carrito</button>
+                    <p>Con vegetales y condimentos para un sabor picante y único.</p>
+                    <p class="precio">$1.75</p>
+                    <button onclick="agregarYConfirmar(this, 'Tacos de res o de soya', 1.75)">🛒 Añadir al carrito</button>
                 </div>
-            </div> 
-               <div class="card">
-                <img src="https://progcarne.com/storage/app/uploads/public/60f/9b1/e8e/60f9b1e8e5dc2774215154.jpg" alt="Panes Grandes Con Pollo">
+            </div>
+
+            <div class="card">
+                <img src="https://progcarne.com/storage/app/uploads/public/60f/9b1/e8e/60f9b1e8e5dc2774215154.jpg" alt="Hamburguesas de res con papas">
                 <div class="info">
                     <h4>Hamburguesas de res con papas</h4>
-                    <p>Gran hamburguesa con carne de res, vegetales y papas fritas pimentadas y un sabor unico.</p>
-                    <p class="precio">Precio: $3.50</p>
-                    <button onclick="agregarCarrito('Hamburguesas de res con papas', 3.50)">Añadir al carrito</button>
+                    <p>Carne de res, vegetales y papas fritas pimentadas con sabor único.</p>
+                    <p class="precio">$3.50</p>
+                    <button onclick="agregarYConfirmar(this, 'Hamburguesas de res con papas', 3.50)">🛒 Añadir al carrito</button>
                 </div>
             </div>
+
             <div class="card">
+                <img src="https://www.maricruzavalos.com/wp-content/uploads/2019/09/flautas-de-pollo-recipe-1024x1024.jpg" alt="Flautas De Pollo">
                 <div class="info">
-                    <img src="https://www.maricruzavalos.com/wp-content/uploads/2019/09/flautas-de-pollo-recipe-1024x1024.jpg" alt="Flautas De Pollo">
                     <h4>Flautas De Pollo</h4>
-                    <p>Deliciosas flautas rellenas de pollo, cubiertas con salsa de tomate y queso derretido.</p>
-                    <p class="precio">Precio: $4.50</p>
-                    <button onclick="agregarCarrito('Flautas De Pollo', 4.50)">Añadir al carrito</button>
+                    <p>Rellenas de pollo, cubiertas con salsa de tomate y queso derretido.</p>
+                    <p class="precio">$4.50</p>
+                    <button onclick="agregarYConfirmar(this, 'Flautas De Pollo', 4.50)">🛒 Añadir al carrito</button>
                 </div>
             </div>
-                <div class="card">
-                    <div class="info">
-                    <img src="https://th.bing.com/th/id/OIP.PRLxDBBfa3OBqi3lakat2gHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hamburguesa">
+
+            <div class="card">
+                <img src="https://th.bing.com/th/id/OIP.PRLxDBBfa3OBqi3lakat2gHaHa?rs=1&pid=ImgDetMain" alt="Hamburguesa de Res">
+                <div class="info">
                     <h4>Hamburguesa de Res</h4>
-                    <p>Jugosa hamburguesa de res, acompañada de queso, lechuga y tomate frescos.</p>
-                    <p class="precio">Precio: $3.00</p>
-                    <button onclick="agregarCarrito('Hamburguesa de Res', 3.00)">Añadir al carrito</button>
+                    <p>Jugosa con queso, lechuga y tomate frescos.</p>
+                    <p class="precio">$3.00</p>
+                    <button onclick="agregarYConfirmar(this, 'Hamburguesa de Res', 3.00)">🛒 Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- carrito.js debe estar en la misma carpeta -->
+    <script src="JS/carrito.js"></script>
+    <script>
+        // ── Feedback visual al añadir ──
+        function agregarYConfirmar(btn, nombre, precio) {
+            agregarCarrito(nombre, precio);
+            const original = btn.innerHTML;
+            btn.innerHTML = '✅ ¡Añadido!';
+            btn.classList.add('añadido');
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = original;
+                btn.classList.remove('añadido');
+                btn.disabled = false;
+            }, 1400);
+        }
+
+        // ── Sesión de usuario ──
+        const sesion = JSON.parse(localStorage.getItem('sesionActiva'));
+        const navSesion = document.getElementById('nav-sesion');
+
+        if (sesion) {
+            const inicial = sesion.user.charAt(0).toUpperCase();
+            navSesion.innerHTML = `
+                <div class="nav-user">
+                    <button class="user-btn" onclick="toggleDropdown()">
+                        <div class="avatar">${inicial}</div>
+                        ${sesion.user}
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <p>📧 ${sesion.email}</p>
+                        <button class="cerrar-sesion" onclick="cerrarSesion()">🚪 Cerrar Sesión</button>
                     </div>
                 </div>
+            `;
+        } else {
+            navSesion.innerHTML = `<a href="Login.html">Inicio De Sesión</a>`;
+        }
 
-            </div>
-        </div>
-        </div>
-        </div>
-                  
-                 
-               
-        </div>
-        <div id="carrito-lateral" class="carrito-sidebar">
-    <h3>Tu Pedido</h3>
-    <div id="items-carrito"></div>
-    <p>Total: $<span id="total-carrito">0.00</span></p>
-    <button onclick="enviarWhatsApp()">Pedir por WhatsApp</button>
-    <button onclick="toggleCarrito()">Cerrar</button>
-</div>
-<script src="carrito.js"></script>
+        function toggleDropdown() {
+            document.getElementById('dropdownMenu').classList.toggle('visible');
+        }
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu && !e.target.closest('.nav-user')) menu.classList.remove('visible');
+        });
+        function cerrarSesion() {
+            localStorage.removeItem('sesionActiva');
+            window.location.href = 'Login.html';
+        }
+    </script>
 </body>
 </html>
